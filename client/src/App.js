@@ -5,6 +5,7 @@ import AllUsers from './pages/AllUsers';
 import NotFound from './pages/NotFound';
 import About from './pages/About';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import EditUser from './pages/EditUser';
 
 const App = () => {
 	return (
@@ -15,6 +16,7 @@ const App = () => {
 					<Route exact path='/' element={<AllUsers />} />
 					<Route exact path='/about' element={<About />} />
 					<Route exact path='/add-new-user' element={<AddNewUser />} />
+					<Route exact path='/edit/:id' element={<EditUser />} />
 					<Route path='*' exact={true} element={<NotFound />} />
 				</Routes>
 			</Router>

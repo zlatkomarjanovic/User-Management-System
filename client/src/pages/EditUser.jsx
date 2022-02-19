@@ -30,7 +30,7 @@ const initialValues = {
 	status: '',
 };
 
-const AddNewUser = () => {
+const EditUser = () => {
 	const [user, setUser] = useState(initialValues);
 	const { firstName, lastName, username, password, email, status } = user;
 	const classes = useStyle();
@@ -103,4 +103,4 @@ const AddNewUser = () => {
 	);
 };
 
-export default AddNewUser;
+export default EditUser;

@@ -7,7 +7,9 @@ import {
 	TableHead,
 	TableBody,
 	makeStyles,
+	Button,
 } from '@material-ui/core';
+import { NavLink as Link } from 'react-router-dom';
 
 const useStyle = makeStyles({
 	table: {
@@ -54,6 +56,8 @@ const AllUsers = () => {
 						<TableCell>Last Name</TableCell>
 						<TableCell>Username</TableCell>
 						<TableCell>E-mail</TableCell>
+						<TableCell>Status</TableCell>
+						<TableCell></TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
@@ -64,6 +68,21 @@ const AllUsers = () => {
 							<TableCell>{user.lastName}</TableCell>
 							<TableCell>{user.username}</TableCell>
 							<TableCell>{user.email}</TableCell>
+							<TableCell>{user.status}</TableCell>
+							<TableCell>
+								<Button
+									style={{ marginRight: '10px' }}
+									variant='contained'
+									color='primary'
+									component={Link}
+									to={`/edit/${user.id}`}
+								>
+									Edit
+								</Button>
+								<Button variant='contained' color='secondary'>
+									Delete
+								</Button>
+							</TableCell>
 						</TableRow>
 					))}
 				</TableBody>
