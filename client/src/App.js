@@ -4,13 +4,7 @@ import AddNewUser from './pages/AddNewUser';
 import AllUsers from './pages/AllUsers';
 import NotFound from './pages/NotFound';
 import About from './pages/About';
-import {
-	BrowserRouter as Router,
-	Route,
-	Routes,
-	Switch,
-	Redirect,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const App = () => {
 	return (

@@ -7,7 +7,7 @@ import {
 	makeStyles,
 	Typography,
 } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 
 const useStyle = makeStyles({
 	container: {
@@ -19,36 +19,74 @@ const useStyle = makeStyles({
 	},
 });
 
+const initialValues = {
+	firstName: '',
+	lastName: '',
+	username: '',
+	password: '',
+	email: '',
+	status: '',
+};
+
 const AddNewUser = () => {
+	const [user, setUser] = useState(initialValues);
+	const { firstName, lastName, username, password, email, status } = user;
 	const classes = useStyle();
+
+	const onValueChange = (e) => {
+		setUser({ ...user, [e.target.name]: e.target.value });
+	};
+
 	return (
 		<FormGroup className={classes.container}>
 			<Typography variant='h6'> Add User</Typography>
 			<FormControl>
 				<InputLabel>First Name</InputLabel>
-				<Input />
+				<Input
+					onChange={(e) => onValueChange(e)}
+					name='firstName'
+					value={firstName}
+				/>
 			</FormControl>
 			<FormControl>
 				<InputLabel>Last Name</InputLabel>
-				<Input />
+				<Input
+					onChange={(e) => onValueChange(e)}
+					name='lastName'
+					value={lastName}
+				/>
 			</FormControl>
 			<FormControl>
 				<InputLabel>Username</InputLabel>
-				<Input />
+				<Input
+					onChange={(e) => onValueChange(e)}
+					name='username'
+					value={username}
+				/>
 			</FormControl>
 			<FormControl>
 				<InputLabel>Password</InputLabel>
-				<Input />
+				<Input
+					onChange={(e) => onValueChange(e)}
+					name='password'
+					value={password}
+				/>
 			</FormControl>
 			<FormControl>
 				<InputLabel>Email</InputLabel>
-				<Input type='email' />
+				<Input onChange={(e) => onValueChange(e)} name='email' value={email} />
 			</FormControl>
 			<FormControl>
 				<InputLabel>Status</InputLabel>
-				<Input />
+				<Input
+					onChange={(e) => onValueChange(e)}
+					name='status'
+					value={status}
+				/>
 			</FormControl>
-			<Button variant='contained'>Add User</Button>
+			<Button variant='contained' color='primary'>
+				Add User
+			</Button>
 		</FormGroup>
 	);
 };
