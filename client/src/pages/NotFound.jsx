@@ -17,6 +17,8 @@ const useStyle = makeStyles({
 
 const NotFound = () => {
 	const classes = useStyle();
+	const imgSrc = 'https://i.stack.imgur.com/6M513.png';
+
 	return (
 		<div style={{ display: 'block', width: '100%', height: '100vh' }}>
 			<img
@@ -29,7 +31,7 @@ const NotFound = () => {
 					height: '50vh',
 					objectFit: 'cover',
 				}}
-				src='https://i.stack.imgur.com/6M513.png'
+				src={imgSrc}
 				alt='Error 404 - Not Found'
 			/>
 			<NavLink to='./'>

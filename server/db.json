@@ -1,0 +1,31 @@
+{
+	"users": [
+		{
+			"id": "1",
+			"firstName": "Zlatko",
+			"lastName": "Marjanović",
+			"username": "goldenko",
+			"password": "password123",
+			"email": "business@zlatkomarjanovic.com",
+			"status": ""
+		},
+		{
+			"id": "2",
+			"firstName": "Zlatko",
+			"lastName": "Marjanović",
+			"username": "goldenko",
+			"password": "password123",
+			"email": "business@zlatkomarjanovic.com",
+			"status": ""
+		},
+		{
+			"id": "3",
+			"firstName": "Zlatko",
+			"lastName": "Marjanović",
+			"username": "goldenko",
+			"password": "password123",
+			"email": "business@zlatkomarjanovic.com",
+			"status": ""
+		}
+	]
+}
