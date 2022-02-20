@@ -12,10 +12,8 @@ import {
 	Input,
 	FormGroup,
 } from '@material-ui/core';
-import { NavLink as Link } from 'react-router-dom';
 import Pagination from '../../components/Pagination/Pagination';
 import { useStyle } from './styles';
-import { AiFillDelete } from 'react-icons/ai';
 import User from '../../components/User/User';
 
 const AllUsers = () => {
