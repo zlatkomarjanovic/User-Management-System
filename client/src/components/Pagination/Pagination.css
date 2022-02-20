@@ -1,0 +1,25 @@
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.page-item {
+	margin-top: 2rem;
+}
+
+.page-link:hover {
+	background-color: #2aaafa;
+	transition: 0.5s ease-in-out;
+}
+
+.page-link {
+	padding: 1.5rem;
+	cursor: pointer;
+	margin: 0.3rem;
+	font-weight: bold;
+	background-color: #0583d2;
+	border-radius: 15px;
+	color: white;
+	transition: 0.5s ease-in-out;
+}

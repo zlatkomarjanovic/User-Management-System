@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllUsers } from '../services/api';
+import { getAllUsers, deleteUser } from '../services/api';
 import {
 	TableCell,
 	TableRow,
@@ -10,6 +10,7 @@ import {
 	Button,
 } from '@material-ui/core';
 import { NavLink as Link } from 'react-router-dom';
+import Pagination from '../components/Pagination/Pagination';
 
 const useStyle = makeStyles({
 	table: {
@@ -36,15 +37,34 @@ const useStyle = makeStyles({
 const AllUsers = () => {
 	const classes = useStyle();
 	const [users, setUsers] = useState([]);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [usersPerPage] = useState(8);
 
 	const getUsers = async () => {
 		const { data } = await getAllUsers();
 		setUsers(data);
 	};
 
+	const deleteUserData = async (id) => {
+		var proceed = window.confirm('Are you sure you want to proceed?');
+
+		if (proceed) {
+			await deleteUser(id);
+			getUsers();
+		} else {
+			getUsers();
+		}
+	};
+
 	useEffect(() => {
 		getUsers();
 	}, []);
+
+	const indexOfLastUser = currentPage * usersPerPage;
+	const indexOfFirstUser = indexOfLastUser - usersPerPage;
+	const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+
+	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
 	return (
 		<>
@@ -61,7 +81,7 @@ const AllUsers = () => {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{users.map((user) => (
+					{currentUsers.map((user) => (
 						<TableRow className={classes.row}>
 							<TableCell>{user.id}</TableCell>
 							<TableCell>{user.firstName}</TableCell>
@@ -79,7 +99,11 @@ const AllUsers = () => {
 								>
 									Edit
 								</Button>
-								<Button variant='contained' color='secondary'>
+								<Button
+									onClick={() => deleteUserData(user.id)}
+									variant='contained'
+									color='secondary'
+								>
 									Delete
 								</Button>
 							</TableCell>
@@ -87,6 +111,11 @@ const AllUsers = () => {
 					))}
 				</TableBody>
 			</Table>
+			<Pagination
+				postsPerPage={usersPerPage}
+				totalPosts={users.length}
+				paginate={paginate}
+			/>
 		</>
 	);
 };

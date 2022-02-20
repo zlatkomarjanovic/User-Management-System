@@ -8,8 +8,9 @@ import {
 	Typography,
 } from '@material-ui/core';
 import React, { useState } from 'react';
-import { addNewUser } from '../services/api';
-import { useNavigate } from 'react-router-dom';
+import { editUser, getAllUsers } from '../services/api';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const useStyle = makeStyles({
 	container: {
@@ -35,19 +36,29 @@ const EditUser = () => {
 	const { firstName, lastName, username, password, email, status } = user;
 	const classes = useStyle();
 	let navigate = useNavigate();
+	const { id } = useParams();
+
+	useEffect(() => {
+		loadUserData();
+	}, []);
+
+	const loadUserData = async () => {
+		const { data } = await getAllUsers(id);
+		setUser(data);
+	};
 
 	const onValueChange = (e) => {
 		setUser({ ...user, [e.target.name]: e.target.value });
 	};
 
-	const addUserDetails = async () => {
-		await addNewUser(user);
+	const editUserDetails = async () => {
+		await editUser(id, user);
 		navigate('/');
 	};
 
 	return (
 		<FormGroup className={classes.container}>
-			<Typography variant='h6'> Add User</Typography>
+			<Typography variant='h6'> Edit User</Typography>
 			<FormControl>
 				<InputLabel>First Name</InputLabel>
 				<Input
@@ -65,22 +76,6 @@ const EditUser = () => {
 				/>
 			</FormControl>
 			<FormControl>
-				<InputLabel>Username</InputLabel>
-				<Input
-					onChange={(e) => onValueChange(e)}
-					name='username'
-					value={username}
-				/>
-			</FormControl>
-			<FormControl>
-				<InputLabel>Password</InputLabel>
-				<Input
-					onChange={(e) => onValueChange(e)}
-					name='password'
-					value={password}
-				/>
-			</FormControl>
-			<FormControl>
 				<InputLabel>Email</InputLabel>
 				<Input onChange={(e) => onValueChange(e)} name='email' value={email} />
 			</FormControl>
@@ -93,11 +88,11 @@ const EditUser = () => {
 				/>
 			</FormControl>
 			<Button
-				onClick={() => addUserDetails()}
+				onClick={() => editUserDetails()}
 				variant='contained'
 				color='primary'
 			>
-				Add User
+				Commit changes
 			</Button>
 		</FormGroup>
 	);
