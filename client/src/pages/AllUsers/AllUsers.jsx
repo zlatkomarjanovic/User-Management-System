@@ -99,7 +99,7 @@ const AllUsers = () => {
 	return (
 		<>
 			<FormGroup className={classes.container}>
-				<FormControl>
+				<FormControl className={classes.search}>
 					<InputLabel>Search...</InputLabel>
 					<Input
 						type='text'

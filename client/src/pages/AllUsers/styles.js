@@ -34,4 +34,5 @@ export const useStyle = makeStyles({
 			marginTop: '20px',
 		},
 	},
+	search: {},
 });
