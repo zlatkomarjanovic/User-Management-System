@@ -2,7 +2,7 @@
 
 ### Welcome to User Management Github page
 
-## Before proceeding with testing please make sure to install all the necessary dependencies.
+## Before proceeding with the testing please make sure to install all the necessary dependencies.
 
 ## Instructions:
 
