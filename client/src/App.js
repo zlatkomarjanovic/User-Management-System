@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound';
 import About from './pages/About';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import EditUser from './pages/EditUser';
+import AssignPermissions from './pages/AssignPermissions';
 
 const App = () => {
 	return (
@@ -17,6 +18,7 @@ const App = () => {
 					<Route exact path='/about' element={<About />} />
 					<Route exact path='/add-new-user' element={<AddNewUser />} />
 					<Route exact path='/edit/:id' element={<EditUser />} />
+					<Route exact path='/assign/:id' element={<AssignPermissions />} />
 					<Route path='*' exact={true} element={<NotFound />} />
 				</Routes>
 			</Router>

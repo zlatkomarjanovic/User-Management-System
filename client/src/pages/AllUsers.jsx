@@ -30,6 +30,9 @@ const useStyle = makeStyles({
 			color: 'white',
 			fontSize: '1rem',
 		},
+		tcell: {
+			cursor: 'pointer !important',
+		},
 	},
 	row: {
 		'& > *': {
@@ -44,8 +47,8 @@ const AllUsers = () => {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [users, setUsers] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
-	const [usersPerPage] = useState(8);
-	const [order, setOrder] = useState('');
+	const [usersPerPage] = useState(10);
+	const [order, setOrder] = useState('ASC');
 
 	//API calls
 	const getUsers = async () => {
@@ -89,8 +92,8 @@ const AllUsers = () => {
 		} else if (order === 'DSC') {
 			const sortedUsers = [...currentUsers].sort((a, b) =>
 				a[col].toString().toLowerCase() < b[col].toString().toLowerCase()
-					? -1
-					: 1
+					? 1
+					: -1
 			);
 			setUsers(sortedUsers);
 			setOrder('ASC');
@@ -101,7 +104,6 @@ const AllUsers = () => {
 		<>
 			<FormGroup>
 				<FormControl>
-					{order === '' ? <div /> : <button>Cancel sorting</button>}
 					<InputLabel>Search...</InputLabel>
 					<Input
 						type='text'
@@ -116,7 +118,9 @@ const AllUsers = () => {
 			<Table className={classes.table}>
 				<TableHead>
 					<TableRow className={classes.thead}>
-						<TableCell onClick={() => sorting('id')}>Id</TableCell>
+						<TableCell className={classes.tcell} onClick={() => sorting('id')}>
+							Id
+						</TableCell>
 						<TableCell onClick={() => sorting('firstName')}>
 							First Name
 						</TableCell>
@@ -124,7 +128,15 @@ const AllUsers = () => {
 						<TableCell onClick={() => sorting('username')}>Username</TableCell>
 						<TableCell onClick={() => sorting('email')}>E-mail</TableCell>
 						<TableCell onClick={() => sorting('status')}>Status</TableCell>
-						<TableCell></TableCell>
+						<TableCell>
+							<Button
+								style={{ marginRight: '10px' }}
+								variant='contained'
+								color='primary'
+							>
+								Cancel sorting
+							</Button>
+						</TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
@@ -165,6 +177,15 @@ const AllUsers = () => {
 										to={`/edit/${user.id}`}
 									>
 										Edit
+									</Button>
+									<Button
+										style={{ marginRight: '10px' }}
+										variant='contained'
+										color='primary'
+										component={Link}
+										to={`/assign/${user.id}`}
+									>
+										Assign
 									</Button>
 									<Button
 										onClick={() => deleteUserData(user.id)}
