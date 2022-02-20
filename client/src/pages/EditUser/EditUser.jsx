@@ -41,6 +41,7 @@ const EditUser = () => {
 	//Not sure why am I getting a warning here
 	useEffect(() => {
 		loadUserData();
+		//eslint-disable-next-line
 	}, []);
 
 	const loadUserData = async () => {
