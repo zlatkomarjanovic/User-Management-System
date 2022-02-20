@@ -2,16 +2,19 @@ import { makeStyles } from '@material-ui/core';
 
 export const useStyle = makeStyles({
 	table: {
-		borderRadius: '10rem',
+		backgroundColor: 'white',
+		borderRadius: '1rem',
 		justifyContent: 'center',
 		marginLeft: 'auto',
 		marginRight: 'auto',
 		width: '90%',
 		margin: '50px 0 0 50px',
 	},
+
 	thead: {
+		backgroundColor: '#1976d2',
+		borderRadius: '1rem',
 		'& > *': {
-			background: 'black',
 			color: 'white',
 			fontSize: '1rem',
 		},
