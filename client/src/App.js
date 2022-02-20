@@ -1,12 +1,14 @@
 import React from 'react';
 import Navbar from './components/Navbar/Navbar';
-import AddNewUser from './pages/AddNewUser/AddNewUser';
-import AllUsers from './pages/AllUsers/AllUsers';
-import NotFound from './pages/NotFound/NotFound';
-import About from './pages/About/About';
+import {
+	About,
+	AddNewUser,
+	AllUsers,
+	AssignPermissions,
+	EditUser,
+	NotFound,
+} from './pages';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import EditUser from './pages/EditUser/EditUser';
-import AssignPermissions from './pages/AssignPermissions/AssignPermissions';
 
 const App = () => {
 	return (
