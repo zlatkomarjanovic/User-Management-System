@@ -12,7 +12,7 @@ export const useStyle = makeStyles({
 		marginTop: '2rem',
 	},
 	pageLink: {
-		padding: '1.5rem',
+		padding: '1rem 1.1rem',
 		cursor: 'pointer',
 		margin: '0.3rem',
 		fontWeight: 'bold',
