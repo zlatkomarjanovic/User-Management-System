@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, makeStyles } from '@material-ui/core';
+import { AppBar, Toolbar } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import { useStyle } from './styles';
 
