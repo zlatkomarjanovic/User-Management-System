@@ -1,26 +1,6 @@
 {
   "users": [
     {
-      "firstName": "Jakeem",
-      "lastName": "Marks",
-      "username": "mijisigada",
-      "password": "Recusandae Ut asper",
-      "email": "qexy@mailinator.com",
-      "status": "Harum impedit cupid",
-      "id": 4,
-      "permissions": "Admin"
-    },
-    {
-      "firstName": "Mara",
-      "lastName": "Henry",
-      "username": "dabixar",
-      "password": "Non quia unde beatae",
-      "email": "xugobuxij@mailinator.com",
-      "status": "Sed odio aspernatur ",
-      "id": 5,
-      "permissions": "No Permission"
-    },
-    {
       "firstName": "Indigo",
       "lastName": "Massey",
       "username": "fenuhymavi",
@@ -28,7 +8,7 @@
       "email": "xerozytah@mailinator.com",
       "status": "Maiores non cupidata",
       "id": 6,
-      "permissions": ""
+      "permissions": " "
     },
     {
       "firstName": "Yuli",
@@ -108,7 +88,7 @@
       "email": "vyfav@mailinator.com",
       "status": "Ex quia ipsam do lab",
       "id": 14,
-      "permissions": ""
+      "permissions": "Admin"
     },
     {
       "firstName": "Tyler",
