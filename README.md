@@ -19,3 +19,8 @@
 - "cd ./client" && "npm start" - starts the front-end on localhost:3000
 
 Concurrently is installed as a dependency in a server folder. Therefore when you install both dependencies on client and server side, you finally go back to server side, and simply run the command - "npm run dev" to start the entire application.
+
+
+Thank you for your time 
+
+Happy testing :D 
