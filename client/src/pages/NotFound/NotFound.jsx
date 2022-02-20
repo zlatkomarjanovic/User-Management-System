@@ -1,19 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Typography, makeStyles } from '@material-ui/core';
-
-const useStyle = makeStyles({
-	goback: {
-		margin: '0rem 1rem 0rem 1rem',
-		padding: '1rem',
-		cursor: 'pointer',
-		color: 'black',
-		fontSize: '1.5rem',
-		textDecoration: 'none',
-		textTransform: 'uppercase',
-		fontWeight: 'bold',
-	},
-});
+import { Typography } from '@material-ui/core';
+import { useStyle } from './styles';
 
 const NotFound = () => {
 	const classes = useStyle();

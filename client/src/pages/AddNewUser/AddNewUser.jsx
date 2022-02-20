@@ -4,23 +4,12 @@ import {
 	FormGroup,
 	Input,
 	InputLabel,
-	makeStyles,
 	Typography,
 } from '@material-ui/core';
 import React, { useState } from 'react';
-import { editUser, getAllUsers } from '../services/api';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect } from 'react';
-
-const useStyle = makeStyles({
-	container: {
-		width: '50%',
-		margin: '5% 0 0 25%',
-		'& > *': {
-			marginTop: '20px',
-		},
-	},
-});
+import { addNewUser } from '../../services/api';
+import { useNavigate } from 'react-router-dom';
+import { useStyle } from './styles';
 
 const initialValues = {
 	firstName: '',
@@ -31,34 +20,24 @@ const initialValues = {
 	status: '',
 };
 
-const EditUser = () => {
+const AddNewUser = () => {
 	const [user, setUser] = useState(initialValues);
 	const { firstName, lastName, username, password, email, status } = user;
 	const classes = useStyle();
 	let navigate = useNavigate();
-	const { id } = useParams();
-
-	useEffect(() => {
-		loadUserData();
-	}, []);
-
-	const loadUserData = async () => {
-		const { data } = await getAllUsers(id);
-		setUser(data);
-	};
 
 	const onValueChange = (e) => {
 		setUser({ ...user, [e.target.name]: e.target.value });
 	};
 
-	const editUserDetails = async () => {
-		await editUser(id, user);
+	const addUserDetails = async () => {
+		await addNewUser(user);
 		navigate('/');
 	};
 
 	return (
 		<FormGroup className={classes.container}>
-			<Typography variant='h6'> Edit User</Typography>
+			<Typography variant='h6'> Add User</Typography>
 			<FormControl>
 				<InputLabel>First Name</InputLabel>
 				<Input
@@ -76,6 +55,22 @@ const EditUser = () => {
 				/>
 			</FormControl>
 			<FormControl>
+				<InputLabel>Username</InputLabel>
+				<Input
+					onChange={(e) => onValueChange(e)}
+					name='username'
+					value={username}
+				/>
+			</FormControl>
+			<FormControl>
+				<InputLabel>Password</InputLabel>
+				<Input
+					onChange={(e) => onValueChange(e)}
+					name='password'
+					value={password}
+				/>
+			</FormControl>
+			<FormControl>
 				<InputLabel>Email</InputLabel>
 				<Input onChange={(e) => onValueChange(e)} name='email' value={email} />
 			</FormControl>
@@ -87,20 +82,15 @@ const EditUser = () => {
 					value={status}
 				/>
 			</FormControl>
-			<FormControl>
-				<Typography variant='primary'>
-					Permissions: {user.permissions || <>No permissions</>}
-				</Typography>
-			</FormControl>
 			<Button
-				onClick={() => editUserDetails()}
+				onClick={() => addUserDetails()}
 				variant='contained'
 				color='primary'
 			>
-				Commit changes
+				Add User
 			</Button>
 		</FormGroup>
 	);
 };
 
-export default EditUser;
+export default AddNewUser;

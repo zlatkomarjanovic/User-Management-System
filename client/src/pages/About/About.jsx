@@ -1,13 +1,11 @@
-import { Typography, makeStyles } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 import React from 'react';
 
 const About = () => {
 	return (
-		<>
-			<Typography align='center' variant='h4'>
-				About this web-application
-			</Typography>
-		</>
+		<Box component='div'>
+			<Typography variant='h5'>About this web-application</Typography>
+		</Box>
 	);
 };
 

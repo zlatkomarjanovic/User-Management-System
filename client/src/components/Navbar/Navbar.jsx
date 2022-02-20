@@ -1,21 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, makeStyles } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
-
-const useStyle = makeStyles({
-	header: {
-		background: '#111111',
-	},
-	links: {
-		margin: '0rem 1rem 0rem 1rem',
-		padding: '1rem',
-		cursor: 'pointer',
-		color: 'white',
-		textDecoration: 'none',
-		textTransform: 'uppercase',
-		fontWeight: 'bold',
-	},
-});
+import { useStyle } from './styles';
 
 const Navbar = () => {
 	const classes = useStyle();

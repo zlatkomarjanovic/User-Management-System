@@ -2,26 +2,15 @@ import {
 	Button,
 	FormControl,
 	FormGroup,
-	Select,
-	MenuItem,
+	Input,
 	InputLabel,
-	makeStyles,
 	Typography,
 } from '@material-ui/core';
 import React, { useState } from 'react';
-import { editUser, getAllUsers } from '../services/api';
+import { editUser, getAllUsers } from '../../services/api';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-
-const useStyle = makeStyles({
-	container: {
-		width: '50%',
-		margin: '5% 0 0 25%',
-		'& > *': {
-			marginTop: '20px',
-		},
-	},
-});
+import { useStyle } from './styles';
 
 const initialValues = {
 	firstName: '',
@@ -30,11 +19,11 @@ const initialValues = {
 	password: '',
 	email: '',
 	status: '',
-	permissions: '',
 };
 
-const AssignPermissions = () => {
+const EditUser = () => {
 	const [user, setUser] = useState(initialValues);
+	const { firstName, lastName, email, status } = user;
 	const classes = useStyle();
 	let navigate = useNavigate();
 	const { id } = useParams();
@@ -59,44 +48,49 @@ const AssignPermissions = () => {
 
 	return (
 		<FormGroup className={classes.container}>
-			<Typography variant='h6'>
-				Assign new permissions to {user.firstName} {user.lastName}
-			</Typography>
-
+			<Typography variant='h6'> Edit User</Typography>
 			<FormControl>
-				<InputLabel>Permissions</InputLabel>
-
-				<Select
-					value={user.permissions}
-					name='permissions'
+				<InputLabel>First Name</InputLabel>
+				<Input
 					onChange={(e) => onValueChange(e)}
-				>
-					<MenuItem value='Code'>Code</MenuItem>
-					<MenuItem value='Description'>Description</MenuItem>
-					<MenuItem value='Superadmin'>Superadmin</MenuItem>
-					<MenuItem value='Admin'>Admin</MenuItem>
-					<MenuItem value='Read/Write'>Read/Write</MenuItem>
-					<MenuItem value='Read'>Read</MenuItem>
-					<MenuItem value={''}>No Permissions</MenuItem>
-				</Select>
+					name='firstName'
+					value={firstName}
+				/>
+			</FormControl>
+			<FormControl>
+				<InputLabel>Last Name</InputLabel>
+				<Input
+					onChange={(e) => onValueChange(e)}
+					name='lastName'
+					value={lastName}
+				/>
+			</FormControl>
+			<FormControl>
+				<InputLabel>Email</InputLabel>
+				<Input onChange={(e) => onValueChange(e)} name='email' value={email} />
+			</FormControl>
+			<FormControl>
+				<InputLabel>Status</InputLabel>
+				<Input
+					onChange={(e) => onValueChange(e)}
+					name='status'
+					value={status}
+				/>
+			</FormControl>
+			<FormControl>
+				<Typography variant='primary'>
+					Permissions: {user.permissions || <>No permissions</>}
+				</Typography>
 			</FormControl>
 			<Button
 				onClick={() => editUserDetails()}
 				variant='contained'
 				color='primary'
 			>
-				Assign new permissions
-			</Button>
-			<Button
-				value='adfasd'
-				name='permissions'
-				variant='contained'
-				color='primary'
-			>
-				Delete all permissions
+				Commit changes
 			</Button>
 		</FormGroup>
 	);
 };
 
-export default AssignPermissions;
+export default EditUser;

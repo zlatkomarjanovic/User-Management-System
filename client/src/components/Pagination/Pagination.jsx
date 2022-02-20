@@ -1,23 +1,26 @@
 import React from 'react';
-import './Pagination.css';
+import { Box } from '@material-ui/core';
+import { useStyle } from './style';
 
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
 	const pageNumbers = [];
+	const classes = useStyle();
 
 	for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
 		pageNumbers.push(i);
 	}
 
 	return (
-		<div className='pagination'>
+		<Box component='div' className={classes.pagination}>
 			{pageNumbers.map((number) => (
-				<div key={number} className='page-item'>
-					<a onClick={() => paginate(number)} className='page-link'>
+				<Box key={number} component='div' className={classes.pageItem}>
+					{/*eslint-disable-next-line*/}
+					<a onClick={() => paginate(number)} className={classes.pageLink}>
 						{number}
 					</a>
-				</div>
+				</Box>
 			))}
-		</div>
+		</Box>
 	);
 };
 

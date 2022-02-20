@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { getAllUsers, deleteUser } from '../services/api';
+import { getAllUsers, deleteUser } from '../../services/api';
 import {
 	TableCell,
 	TableRow,
 	Table,
 	TableHead,
 	TableBody,
-	makeStyles,
 	Button,
 	FormControl,
 	InputLabel,
@@ -14,39 +13,8 @@ import {
 	FormGroup,
 } from '@material-ui/core';
 import { NavLink as Link } from 'react-router-dom';
-import Pagination from '../components/Pagination/Pagination';
-
-const useStyle = makeStyles({
-	table: {
-		justifyContent: 'center',
-		marginLeft: 'auto',
-		marginRight: 'auto',
-		width: '90%',
-		margin: '50px 0 0 50px',
-	},
-	thead: {
-		'& > *': {
-			background: 'black',
-			color: 'white',
-			fontSize: '1rem',
-		},
-		tcell: {
-			cursor: 'pointer !important',
-		},
-	},
-	row: {
-		'& > *': {
-			fontSize: '1rem',
-		},
-	},
-	container: {
-		width: '50%',
-		margin: '10px 0 0 25%',
-		'& > *': {
-			marginTop: '20px',
-		},
-	},
-});
+import Pagination from '../../components/Pagination/Pagination';
+import { useStyle } from './styles';
 
 const AllUsers = () => {
 	//States
@@ -169,7 +137,7 @@ const AllUsers = () => {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{usersTofilter
+					{usersTofilter /*eslint-disable-next-line */
 						.filter((user) => {
 							if (searchTerm === '') {
 								return usersTofilter;
