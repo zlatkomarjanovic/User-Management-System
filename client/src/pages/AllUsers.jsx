@@ -64,7 +64,7 @@ const AllUsers = () => {
 	};
 
 	const deleteUserData = async (id) => {
-		var proceed = window.confirm('Are you sure you want to proceed?');
+		var proceed = window.confirm('Are you sure you want to delete this user?');
 
 		if (proceed) {
 			await deleteUser(id);

@@ -75,7 +75,7 @@ const AssignPermissions = () => {
 					<MenuItem value='Admin'>Admin</MenuItem>
 					<MenuItem value='Read/Write'>Read/Write</MenuItem>
 					<MenuItem value='Read'>Read</MenuItem>
-					<MenuItem value='No Permission'>No Permission</MenuItem>
+					<MenuItem value='No Permissions'>No Permissions</MenuItem>
 				</Select>
 			</FormControl>
 			<Button
@@ -85,7 +85,13 @@ const AssignPermissions = () => {
 			>
 				Assign new permissions
 			</Button>
-			<Button variant='contained' color='primary'>
+			<Button
+				value={''}
+				name='permissions'
+				variant='contained'
+				color='primary'
+				onClick={(e) => onValueChange(e)}
+			>
 				Delete all permissions
 			</Button>
 		</FormGroup>
