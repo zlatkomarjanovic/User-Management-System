@@ -22,12 +22,14 @@ const initialValues = {
 };
 
 const EditUser = () => {
+	//states and hooks
 	const [user, setUser] = useState(initialValues);
 	const { firstName, lastName, email, status } = user;
 	const classes = useStyle();
 	let navigate = useNavigate();
 	const { id } = useParams();
 
+	//Not sure why am I getting a warning here
 	useEffect(() => {
 		loadUserData();
 	}, []);

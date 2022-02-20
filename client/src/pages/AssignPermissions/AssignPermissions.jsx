@@ -24,25 +24,28 @@ const initialValues = {
 };
 
 const AssignPermissions = () => {
+	//States and hooks
 	const [user, setUser] = useState(initialValues);
 	const classes = useStyle();
 	let navigate = useNavigate();
-	const { id } = useParams();
+	const { id } = useParams(); //Getting user id from params
 
 	useEffect(() => {
-		loadUserData();
+		loadUserData(); //When component mounts we load user
 	}, []);
 
 	const loadUserData = async () => {
 		const { data } = await getAllUsers(id);
-		setUser(data);
+		setUser(data); //Forwarding id and setting user
 	};
 
 	const onValueChange = (e) => {
+		//Setting key:value pairs accordingly
 		setUser({ ...user, [e.target.name]: e.target.value });
 	};
 
 	const editUserDetails = async () => {
+		//Once we have edited a current users, we navigate back to homepage
 		await editUser(id, user);
 		navigate('/');
 	};
@@ -61,6 +64,7 @@ const AssignPermissions = () => {
 					name='permissions'
 					onChange={(e) => onValueChange(e)}
 				>
+					{/*If we had more options we would simply map over them and display MenuItem for each*/}
 					<MenuItem value='Code'>Code</MenuItem>
 					<MenuItem value='Description'>Description</MenuItem>
 					<MenuItem value='Superadmin'>Superadmin</MenuItem>
@@ -75,15 +79,7 @@ const AssignPermissions = () => {
 				variant='contained'
 				color='primary'
 			>
-				Assign new permissions
-			</Button>
-			<Button
-				value='adfasd'
-				name='permissions'
-				variant='contained'
-				color='primary'
-			>
-				Delete all permissions
+				Assign permissions
 			</Button>
 		</FormGroup>
 	);

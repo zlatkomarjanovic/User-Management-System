@@ -26,10 +26,13 @@ const AddNewUser = () => {
 	const classes = useStyle();
 	let navigate = useNavigate();
 
+	//spreading the user state and setting up key:value pairs
+	//Getting these from a value change event
 	const onValueChange = (e) => {
 		setUser({ ...user, [e.target.name]: e.target.value });
 	};
 
+	//Preventing the user from entering default values and asking for required parameters
 	const addUserDetails = async (e) => {
 		e.preventDefault();
 		if (firstName === '' || lastName === '' || password === '') {
@@ -40,6 +43,7 @@ const AddNewUser = () => {
 		}
 	};
 
+	//returning simple material-ui form
 	return (
 		<FormGroup className={classes.container}>
 			<Typography variant='h6'> Add User</Typography>

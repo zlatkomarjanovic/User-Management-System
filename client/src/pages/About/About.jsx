@@ -3,7 +3,7 @@ import React from 'react';
 import { useStyle } from './style';
 
 const About = () => {
-	const classes = useStyle();
+	const classes = useStyle(); // importing classes
 	return (
 		<Box className={classes.container} component='div'>
 			<Box className={classes.about}>

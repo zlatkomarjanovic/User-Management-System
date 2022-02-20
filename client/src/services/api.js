@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'; //making requests with axios
 
 const url = 'http://localhost:5000/users';
 
@@ -18,3 +18,6 @@ export const editUser = async (id, user) => {
 export const deleteUser = async (id) => {
 	return await axios.delete(`${url}/${id}`);
 };
+
+//This is where we have our Create Read Update and Delete functionality
+//We are making all the necessary API requests to interact with the database

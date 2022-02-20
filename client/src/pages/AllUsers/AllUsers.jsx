@@ -21,11 +21,11 @@ const AllUsers = () => {
 	const classes = useStyle();
 	const [searchTerm, setSearchTerm] = useState('');
 	const [users, setUsers] = useState([]);
-	const [currentPage, setCurrentPage] = useState(1);
+	const [currentPage, setCurrentPage] = useState(1); //current page will start with initial value of 1
 	const [usersPerPage] = useState(10);
 	const [order, setOrder] = useState('ASC');
 
-	//API calls
+	//API calls and function definitions
 	const getUsers = async () => {
 		const { data } = await getAllUsers();
 		setUsers(data);
@@ -52,7 +52,7 @@ const AllUsers = () => {
 	const indexOfFirstUser = indexOfLastUser - usersPerPage;
 	const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
-	const usersTofilter = searchTerm === '' ? currentUsers : users;
+	const usersTofilter = searchTerm === '' ? currentUsers : users; //if search term is not empty we filter through all the users instead of just current ones
 
 	//Sorting
 	const sorting = (col) => {
@@ -76,6 +76,7 @@ const AllUsers = () => {
 	};
 
 	const sortById = (col) => {
+		//Because id is a number and all other fields are string
 		if (order === 'ASC') {
 			const sortedUsers = [...currentUsers].sort((a, b) =>
 				a[col] > b[col] ? 1 : -1
@@ -92,6 +93,8 @@ const AllUsers = () => {
 	};
 
 	const cancelSorting = async () => {
+		//When we have sorted current users and got what we need, we simply cancel sorting and return
+		//to an initial state
 		const { data } = await getAllUsers();
 		setUsers(data);
 	};
