@@ -39,12 +39,15 @@ const useStyle = makeStyles({
 });
 
 const AllUsers = () => {
+	//States
 	const classes = useStyle();
 	const [searchTerm, setSearchTerm] = useState('');
 	const [users, setUsers] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [usersPerPage] = useState(8);
+	const [order, setOrder] = useState('');
 
+	//API calls
 	const getUsers = async () => {
 		const { data } = await getAllUsers();
 		setUsers(data);
@@ -61,21 +64,44 @@ const AllUsers = () => {
 		}
 	};
 
+	//Setting users when component mounts
 	useEffect(() => {
 		getUsers();
 	}, []);
 
+	//Variables
 	const indexOfLastUser = currentPage * usersPerPage;
 	const indexOfFirstUser = indexOfLastUser - usersPerPage;
 	const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
-
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
 	const usersTofilter = searchTerm === '' ? currentUsers : users;
+
+	//Sorting
+	const sorting = (col) => {
+		if (order === 'ASC') {
+			const sortedUsers = [...currentUsers].sort((a, b) =>
+				a[col].toString().toLowerCase() > b[col].toString().toLowerCase()
+					? 1
+					: -1
+			);
+			setUsers(sortedUsers);
+			setOrder('DSC');
+		} else if (order === 'DSC') {
+			const sortedUsers = [...currentUsers].sort((a, b) =>
+				a[col].toString().toLowerCase() < b[col].toString().toLowerCase()
+					? -1
+					: 1
+			);
+			setUsers(sortedUsers);
+			setOrder('ASC');
+		}
+	};
+
 	return (
 		<>
 			<FormGroup>
 				<FormControl>
+					{order === '' ? <div /> : <button>Cancel sorting</button>}
 					<InputLabel>Search...</InputLabel>
 					<Input
 						type='text'
@@ -90,12 +116,14 @@ const AllUsers = () => {
 			<Table className={classes.table}>
 				<TableHead>
 					<TableRow className={classes.thead}>
-						<TableCell>Id</TableCell>
-						<TableCell>First Name</TableCell>
-						<TableCell>Last Name</TableCell>
-						<TableCell>Username</TableCell>
-						<TableCell>E-mail</TableCell>
-						<TableCell>Status</TableCell>
+						<TableCell onClick={() => sorting('id')}>Id</TableCell>
+						<TableCell onClick={() => sorting('firstName')}>
+							First Name
+						</TableCell>
+						<TableCell onClick={() => sorting('lastName')}>Last Name</TableCell>
+						<TableCell onClick={() => sorting('username')}>Username</TableCell>
+						<TableCell onClick={() => sorting('email')}>E-mail</TableCell>
+						<TableCell onClick={() => sorting('status')}>Status</TableCell>
 						<TableCell></TableCell>
 					</TableRow>
 				</TableHead>
@@ -103,7 +131,7 @@ const AllUsers = () => {
 					{usersTofilter
 						.filter((user) => {
 							if (searchTerm === '') {
-								return user;
+								return usersTofilter;
 							} else if (
 								user.firstName.toLowerCase().includes(searchTerm.toLowerCase())
 							) {
@@ -111,6 +139,12 @@ const AllUsers = () => {
 							} else if (
 								user.username.toLowerCase().includes(searchTerm.toLowerCase())
 							) {
+								return user;
+							} else if (
+								user.status.toLowerCase().includes(searchTerm.toLowerCase())
+							) {
+								return user;
+							} else if (user.id.toString().includes(searchTerm)) {
 								return user;
 							}
 						})
@@ -144,11 +178,15 @@ const AllUsers = () => {
 						))}
 				</TableBody>
 			</Table>
-			<Pagination
-				postsPerPage={usersPerPage}
-				totalPosts={users.length}
-				paginate={paginate}
-			/>
+			{searchTerm === '' ? (
+				<Pagination
+					postsPerPage={usersPerPage}
+					totalPosts={users.length}
+					paginate={paginate}
+				/>
+			) : (
+				<div />
+			)}
 		</>
 	);
 };
