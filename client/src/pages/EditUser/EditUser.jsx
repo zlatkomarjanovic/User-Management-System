@@ -19,12 +19,21 @@ const initialValues = {
 	password: '',
 	email: '',
 	status: '',
+	permissions: '',
 };
 
 const EditUser = () => {
 	//states and hooks
 	const [user, setUser] = useState(initialValues);
-	const { firstName, lastName, email, status } = user;
+	const {
+		firstName,
+		lastName,
+		email,
+		status,
+		username,
+		password,
+		permissions,
+	} = user;
 	const classes = useStyle();
 	let navigate = useNavigate();
 	const { id } = useParams();
@@ -79,6 +88,34 @@ const EditUser = () => {
 					value={status}
 				/>
 			</FormControl>
+			<FormControl>
+				<InputLabel>Username</InputLabel>
+				<Input
+					onChange={(e) => onValueChange(e)}
+					name='username'
+					value={username}
+					disabled
+				/>
+			</FormControl>
+			<FormControl>
+				<InputLabel>Password</InputLabel>
+				<Input
+					onChange={(e) => onValueChange(e)}
+					name='password'
+					value={password}
+					disabled
+				/>
+			</FormControl>
+			<FormControl>
+				<InputLabel>Permissions</InputLabel>
+				<Input
+					onChange={(e) => onValueChange(e)}
+					name='permissions'
+					value={permissions}
+					disabled
+				/>
+			</FormControl>
+
 			<FormControl>
 				<Typography variant='primary'>
 					Permissions: {user.permissions || <>No permissions</>}
