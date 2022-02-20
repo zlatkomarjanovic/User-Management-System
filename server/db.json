@@ -1,16 +1,6 @@
 {
   "users": [
     {
-      "firstName": "Indigo",
-      "lastName": "Massey",
-      "username": "fenuhymavi",
-      "password": "Molestiae ut non dol",
-      "email": "xerozytah@mailinator.com",
-      "status": "Maiores non cupidata",
-      "id": 6,
-      "permissions": "Code"
-    },
-    {
       "firstName": "Shad",
       "lastName": "Phillips",
       "username": "xupycer",
@@ -117,6 +107,51 @@
       "email": "suja@mailinator.com",
       "status": "Illo cum necessitati",
       "id": 21
+    },
+    {
+      "firstName": "Brooke",
+      "lastName": "Rojas",
+      "username": "suhyxami",
+      "password": "Incidunt eius facil",
+      "email": "nafizuh@mailinator.com",
+      "status": "Do quos amet et eni",
+      "id": 22
+    },
+    {
+      "firstName": "Akeem",
+      "lastName": "Mcleod",
+      "username": "ximadukuna",
+      "password": "Quia doloribus enim ",
+      "email": "bawemasy@mailinator.com",
+      "status": "Aut totam necessitat",
+      "id": 23
+    },
+    {
+      "firstName": "Ivor",
+      "lastName": "Blankenship",
+      "username": "lucisan",
+      "password": "Ut necessitatibus eo",
+      "email": "cixavaqem@mailinator.com",
+      "status": "Adipisicing amet id",
+      "id": 24
+    },
+    {
+      "firstName": "Blythe",
+      "lastName": "Gentry",
+      "username": "qylopo",
+      "password": "Aute pariatur Omnis",
+      "email": "ruzy@mailinator.com",
+      "status": "Culpa quis aliquam ",
+      "id": 25
+    },
+    {
+      "firstName": "Abigail",
+      "lastName": "Conway",
+      "username": "lyrogajece",
+      "password": "Nemo qui dolorem nem",
+      "email": "xivywib@mailinator.com",
+      "status": "Exercitation et labo",
+      "id": 26
     }
   ]
 }

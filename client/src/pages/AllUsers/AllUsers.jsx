@@ -12,9 +12,8 @@ import {
 	Input,
 	FormGroup,
 } from '@material-ui/core';
-import Pagination from '../../components/Pagination/Pagination';
+import { Pagination, User } from '../../components';
 import { useStyle } from './styles';
-import User from '../../components/User/User';
 
 const AllUsers = () => {
 	//States
