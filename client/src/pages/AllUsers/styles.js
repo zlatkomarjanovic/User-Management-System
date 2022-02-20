@@ -21,43 +21,6 @@ export const useStyle = makeStyles({
 			transition: '0.5s ease-in-out',
 		},
 	},
-	buttonEdit: {
-		marginRight: '10px',
-		backgroundColor: '#1976d2',
-		color: 'white',
-		borderRadius: '2rem',
-		transition: '0.5s ease-in-out',
-		fontWeight: 'bold',
-		'&:hover': {
-			backgroundColor: '#4fc3f7',
-			transition: '0.5s ease-in-out',
-		},
-	},
-	buttonDelete: {
-		width: '40px',
-		marginRight: '10px',
-		backgroundColor: '#c62828',
-		color: 'white',
-		borderRadius: '2rem',
-		transition: '0.5s ease-in-out',
-		fontWeight: 'bold',
-		'&:hover': {
-			backgroundColor: '#e53935',
-			transition: '0.5s ease-in-out',
-		},
-	},
-	buttonAssign: {
-		marginRight: '10px',
-		backgroundColor: '#4527a0',
-		color: 'white',
-		borderRadius: '2rem',
-		transition: '0.5s ease-in-out',
-		fontWeight: 'bold',
-		'&:hover': {
-			backgroundColor: '#5e35b1',
-			transition: '0.5s ease-in-out',
-		},
-	},
 
 	thead: {
 		backgroundColor: '#1976d2',
@@ -69,11 +32,7 @@ export const useStyle = makeStyles({
 			cursor: 'pointer !important',
 		},
 	},
-	row: {
-		'& > *': {
-			fontSize: '1rem',
-		},
-	},
+
 	container: {
 		width: '50%',
 		margin: '10px 0 0 25%',
@@ -81,6 +40,4 @@ export const useStyle = makeStyles({
 			marginTop: '20px',
 		},
 	},
-
-	search: {},
 });

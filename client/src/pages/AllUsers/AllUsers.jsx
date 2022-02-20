@@ -16,6 +16,7 @@ import { NavLink as Link } from 'react-router-dom';
 import Pagination from '../../components/Pagination/Pagination';
 import { useStyle } from './styles';
 import { AiFillDelete } from 'react-icons/ai';
+import User from '../../components/User/User';
 
 const AllUsers = () => {
 	//States
@@ -159,41 +160,15 @@ const AllUsers = () => {
 							}
 						})
 						.map((user) => (
-							<TableRow className={classes.row}>
-								<TableCell>{user.id}</TableCell>
-								<TableCell>{user.firstName}</TableCell>
-								<TableCell>{user.lastName}</TableCell>
-								<TableCell>{user.username}</TableCell>
-								<TableCell>{user.email}</TableCell>
-								<TableCell>{user.status}</TableCell>
-								<TableCell>
-									<Button
-										className={classes.buttonEdit}
-										variant='contained'
-										color='primary'
-										component={Link}
-										to={`/edit/${user.id}`}
-									>
-										Edit
-									</Button>
-									<Button
-										className={classes.buttonAssign}
-										variant='contained'
-										color='primary'
-										component={Link}
-										to={`/assign/${user.id}`}
-									>
-										Assign
-									</Button>
-									<Button
-										className={classes.buttonDelete}
-										onClick={() => deleteUserData(user.id)}
-										variant='contained'
-									>
-										<AiFillDelete style={{ width: '30px', height: '30px' }} />
-									</Button>
-								</TableCell>
-							</TableRow>
+							<User
+								id={user.id}
+								firstName={user.firstName}
+								lastName={user.lastName}
+								username={user.username}
+								email={user.email}
+								status={user.status}
+								deleteUserData={deleteUserData}
+							/>
 						))}
 				</TableBody>
 			</Table>
