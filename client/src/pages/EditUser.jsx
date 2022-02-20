@@ -87,6 +87,11 @@ const EditUser = () => {
 					value={status}
 				/>
 			</FormControl>
+			<FormControl>
+				<Typography variant='primary'>
+					Permissions: {user.permissions || <>No permissions</>}
+				</Typography>
+			</FormControl>
 			<Button
 				onClick={() => editUserDetails()}
 				variant='contained'

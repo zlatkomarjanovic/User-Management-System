@@ -71,11 +71,13 @@ const AssignPermissions = () => {
 					name='permissions'
 					onChange={(e) => onValueChange(e)}
 				>
+					<MenuItem value='Code'>Code</MenuItem>
+					<MenuItem value='Description'>Description</MenuItem>
 					<MenuItem value='Superadmin'>Superadmin</MenuItem>
 					<MenuItem value='Admin'>Admin</MenuItem>
 					<MenuItem value='Read/Write'>Read/Write</MenuItem>
 					<MenuItem value='Read'>Read</MenuItem>
-					<MenuItem value='null'>No Permissions</MenuItem>
+					<MenuItem value={''}>No Permissions</MenuItem>
 				</Select>
 			</FormControl>
 			<Button
