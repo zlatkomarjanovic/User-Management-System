@@ -8,6 +8,10 @@ import {
 	TableBody,
 	makeStyles,
 	Button,
+	FormControl,
+	InputLabel,
+	Input,
+	FormGroup,
 } from '@material-ui/core';
 import { NavLink as Link } from 'react-router-dom';
 import Pagination from '../components/Pagination/Pagination';
@@ -36,6 +40,7 @@ const useStyle = makeStyles({
 
 const AllUsers = () => {
 	const classes = useStyle();
+	const [searchTerm, setSearchTerm] = useState('');
 	const [users, setUsers] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [usersPerPage] = useState(8);
@@ -66,8 +71,22 @@ const AllUsers = () => {
 
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+	const usersTofilter = searchTerm === '' ? currentUsers : users;
 	return (
 		<>
+			<FormGroup>
+				<FormControl>
+					<InputLabel>Search...</InputLabel>
+					<Input
+						type='text'
+						onChange={(event) => {
+							setSearchTerm(event.target.value);
+							console.log(event.target.value);
+						}}
+					/>
+				</FormControl>
+			</FormGroup>
+
 			<Table className={classes.table}>
 				<TableHead>
 					<TableRow className={classes.thead}>
@@ -81,34 +100,48 @@ const AllUsers = () => {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{currentUsers.map((user) => (
-						<TableRow className={classes.row}>
-							<TableCell>{user.id}</TableCell>
-							<TableCell>{user.firstName}</TableCell>
-							<TableCell>{user.lastName}</TableCell>
-							<TableCell>{user.username}</TableCell>
-							<TableCell>{user.email}</TableCell>
-							<TableCell>{user.status}</TableCell>
-							<TableCell>
-								<Button
-									style={{ marginRight: '10px' }}
-									variant='contained'
-									color='primary'
-									component={Link}
-									to={`/edit/${user.id}`}
-								>
-									Edit
-								</Button>
-								<Button
-									onClick={() => deleteUserData(user.id)}
-									variant='contained'
-									color='secondary'
-								>
-									Delete
-								</Button>
-							</TableCell>
-						</TableRow>
-					))}
+					{usersTofilter
+						.filter((user) => {
+							if (searchTerm === '') {
+								return user;
+							} else if (
+								user.firstName.toLowerCase().includes(searchTerm.toLowerCase())
+							) {
+								return user;
+							} else if (
+								user.username.toLowerCase().includes(searchTerm.toLowerCase())
+							) {
+								return user;
+							}
+						})
+						.map((user) => (
+							<TableRow className={classes.row}>
+								<TableCell>{user.id}</TableCell>
+								<TableCell>{user.firstName}</TableCell>
+								<TableCell>{user.lastName}</TableCell>
+								<TableCell>{user.username}</TableCell>
+								<TableCell>{user.email}</TableCell>
+								<TableCell>{user.status}</TableCell>
+								<TableCell>
+									<Button
+										style={{ marginRight: '10px' }}
+										variant='contained'
+										color='primary'
+										component={Link}
+										to={`/edit/${user.id}`}
+									>
+										Edit
+									</Button>
+									<Button
+										onClick={() => deleteUserData(user.id)}
+										variant='contained'
+										color='secondary'
+									>
+										Delete
+									</Button>
+								</TableCell>
+							</TableRow>
+						))}
 				</TableBody>
 			</Table>
 			<Pagination
