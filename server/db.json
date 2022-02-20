@@ -1,40 +1,14 @@
 {
   "users": [
     {
-      "firstName": "Sawyer",
-      "lastName": "Nash",
-      "username": "baziwacyri",
-      "password": "Cumque culpa ut sequ",
-      "email": "nacawub@mailinator.com",
-      "status": "Doloribus itaque non",
-      "id": 1
-    },
-    {
-      "firstName": "Flavia",
-      "lastName": "Jones",
-      "username": "rubazixo",
-      "password": "Perspiciatis vel ei",
-      "email": "ludetewule@mailinator.com",
-      "status": "Tenetur ea adipisci ",
-      "id": 2
-    },
-    {
-      "firstName": "Ulric",
-      "lastName": "Prince",
-      "username": "cugipirot",
-      "password": "Dolorem ducimus dol",
-      "email": "jemikyx@mailinator.com",
-      "status": "Eligendi optio quod",
-      "id": 3
-    },
-    {
       "firstName": "Jakeem",
       "lastName": "Marks",
       "username": "mijisigada",
       "password": "Recusandae Ut asper",
       "email": "qexy@mailinator.com",
       "status": "Harum impedit cupid",
-      "id": 4
+      "id": 4,
+      "permissions": "Admin"
     },
     {
       "firstName": "Mara",
@@ -43,7 +17,8 @@
       "password": "Non quia unde beatae",
       "email": "xugobuxij@mailinator.com",
       "status": "Sed odio aspernatur ",
-      "id": 5
+      "id": 5,
+      "permissions": "No Permission"
     },
     {
       "firstName": "Indigo",
@@ -52,7 +27,8 @@
       "password": "Molestiae ut non dol",
       "email": "xerozytah@mailinator.com",
       "status": "Maiores non cupidata",
-      "id": 6
+      "id": 6,
+      "permissions": ""
     },
     {
       "firstName": "Yuli",
@@ -61,7 +37,8 @@
       "password": "Aut et quo aut sed t",
       "email": "fiwufat@mailinator.com",
       "status": "Nobis rem in labore ",
-      "id": 7
+      "id": 7,
+      "permissions": ""
     },
     {
       "firstName": "Bertha",
@@ -70,7 +47,8 @@
       "password": "Minus ut ex recusand",
       "email": "cynyd@mailinator.com",
       "status": "Non reprehenderit n",
-      "id": 8
+      "id": 8,
+      "permissions": "Read"
     },
     {
       "firstName": "Shad",
@@ -79,7 +57,8 @@
       "password": "Et modi aliquam hic ",
       "email": "cegum@mailinator.com",
       "status": "Officiis est quis ev",
-      "id": 9
+      "id": 9,
+      "permissions": ""
     },
     {
       "firstName": "Lilah",
@@ -88,7 +67,8 @@
       "password": "Qui laboriosam dolo",
       "email": "bojubomyxe@mailinator.com",
       "status": "Quis et in dolor dol",
-      "id": 10
+      "id": 10,
+      "permissions": ""
     },
     {
       "firstName": "Shad",
@@ -97,7 +77,8 @@
       "password": "Sint dignissimos quo",
       "email": "syjacidese@mailinator.com",
       "status": "Non voluptates et ve",
-      "id": 11
+      "id": 11,
+      "permissions": ""
     },
     {
       "firstName": "Ifeoma",
@@ -106,7 +87,8 @@
       "password": "Ex sint aut autem q",
       "email": "qylywohy@mailinator.com",
       "status": "Asperiores accusanti",
-      "id": 12
+      "id": 12,
+      "permissions": ""
     },
     {
       "firstName": "Phoebe",
@@ -115,7 +97,8 @@
       "password": "Occaecat sit ipsum t",
       "email": "bofynevov@mailinator.com",
       "status": "Quod in ex atque sit",
-      "id": 13
+      "id": 13,
+      "permissions": ""
     },
     {
       "firstName": "Baxter",
@@ -124,7 +107,8 @@
       "password": "Veritatis molestias ",
       "email": "vyfav@mailinator.com",
       "status": "Ex quia ipsam do lab",
-      "id": 14
+      "id": 14,
+      "permissions": ""
     },
     {
       "firstName": "Tyler",
@@ -133,7 +117,8 @@
       "password": "Inventore sunt sint",
       "email": "sozejod@mailinator.com",
       "status": "Laboriosam aliquip ",
-      "id": 15
+      "id": 15,
+      "permissions": ""
     },
     {
       "firstName": "Sopoline",
@@ -142,7 +127,8 @@
       "password": "Aut quis molestiae i",
       "email": "mytevuror@mailinator.com",
       "status": "Suscipit aliquip aut",
-      "id": 16
+      "id": 16,
+      "permissions": ""
     },
     {
       "firstName": "India",
@@ -151,7 +137,18 @@
       "password": "Totam ad asperiores ",
       "email": "sapicopi@mailinator.com",
       "status": "Quas incidunt conse",
-      "id": 17
+      "id": 17,
+      "permissions": ""
+    },
+    {
+      "firstName": "Daphne",
+      "lastName": "Rose",
+      "username": "mocosa",
+      "password": "Ipsum elit vel aspe",
+      "email": "givoryz@mailinator.com",
+      "status": "Quia enim dolore lau",
+      "id": 18,
+      "permissions": ""
     }
   ]
 }

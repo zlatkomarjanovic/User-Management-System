@@ -2,7 +2,8 @@ import {
 	Button,
 	FormControl,
 	FormGroup,
-	Input,
+	Select,
+	MenuItem,
 	InputLabel,
 	makeStyles,
 	Typography,
@@ -29,11 +30,11 @@ const initialValues = {
 	password: '',
 	email: '',
 	status: '',
+	permissions: '',
 };
 
-const EditUser = () => {
+const AssignPermissions = () => {
 	const [user, setUser] = useState(initialValues);
-	const { firstName, lastName, email, status } = user;
 	const classes = useStyle();
 	let navigate = useNavigate();
 	const { id } = useParams();
@@ -61,33 +62,21 @@ const EditUser = () => {
 			<Typography variant='h6'>
 				Assign new permissions to {user.firstName} {user.lastName}
 			</Typography>
+
 			<FormControl>
-				<InputLabel>First Name</InputLabel>
-				<Input
+				<InputLabel>Permissions</InputLabel>
+
+				<Select
+					value={user.permissions}
+					name='permissions'
 					onChange={(e) => onValueChange(e)}
-					name='firstName'
-					value={firstName}
-				/>
-			</FormControl>
-			<FormControl>
-				<InputLabel>Last Name</InputLabel>
-				<Input
-					onChange={(e) => onValueChange(e)}
-					name='lastName'
-					value={lastName}
-				/>
-			</FormControl>
-			<FormControl>
-				<InputLabel>Email</InputLabel>
-				<Input onChange={(e) => onValueChange(e)} name='email' value={email} />
-			</FormControl>
-			<FormControl>
-				<InputLabel>Status</InputLabel>
-				<Input
-					onChange={(e) => onValueChange(e)}
-					name='status'
-					value={status}
-				/>
+				>
+					<MenuItem value='Superadmin'>Superadmin</MenuItem>
+					<MenuItem value='Admin'>Admin</MenuItem>
+					<MenuItem value='Read/Write'>Read/Write</MenuItem>
+					<MenuItem value='Read'>Read</MenuItem>
+					<MenuItem value='No Permission'>No Permission</MenuItem>
+				</Select>
 			</FormControl>
 			<Button
 				onClick={() => editUserDetails()}
@@ -96,8 +85,11 @@ const EditUser = () => {
 			>
 				Assign new permissions
 			</Button>
+			<Button variant='contained' color='primary'>
+				Delete all permissions
+			</Button>
 		</FormGroup>
 	);
 };
 
-export default EditUser;
+export default AssignPermissions;

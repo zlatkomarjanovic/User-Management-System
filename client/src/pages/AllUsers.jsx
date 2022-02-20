@@ -39,6 +39,13 @@ const useStyle = makeStyles({
 			fontSize: '1rem',
 		},
 	},
+	container: {
+		width: '50%',
+		margin: '10px 0 0 25%',
+		'& > *': {
+			marginTop: '20px',
+		},
+	},
 });
 
 const AllUsers = () => {
@@ -100,9 +107,30 @@ const AllUsers = () => {
 		}
 	};
 
+	const sortById = (col) => {
+		if (order === 'ASC') {
+			const sortedUsers = [...currentUsers].sort((a, b) =>
+				a[col] > b[col] ? 1 : -1
+			);
+			setUsers(sortedUsers);
+			setOrder('DSC');
+		} else if (order === 'DSC') {
+			const sortedUsers = [...currentUsers].sort((a, b) =>
+				a[col] < b[col] ? 1 : -1
+			);
+			setUsers(sortedUsers);
+			setOrder('ASC');
+		}
+	};
+
+	const cancelSorting = async () => {
+		const { data } = await getAllUsers();
+		setUsers(data);
+	};
+
 	return (
 		<>
-			<FormGroup>
+			<FormGroup className={classes.container}>
 				<FormControl>
 					<InputLabel>Search...</InputLabel>
 					<Input
@@ -118,7 +146,7 @@ const AllUsers = () => {
 			<Table className={classes.table}>
 				<TableHead>
 					<TableRow className={classes.thead}>
-						<TableCell className={classes.tcell} onClick={() => sorting('id')}>
+						<TableCell className={classes.tcell} onClick={() => sortById('id')}>
 							Id
 						</TableCell>
 						<TableCell onClick={() => sorting('firstName')}>
@@ -133,6 +161,7 @@ const AllUsers = () => {
 								style={{ marginRight: '10px' }}
 								variant='contained'
 								color='primary'
+								onClick={() => cancelSorting()}
 							>
 								Cancel sorting
 							</Button>
