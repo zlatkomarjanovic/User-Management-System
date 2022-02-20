@@ -30,16 +30,21 @@ const AddNewUser = () => {
 		setUser({ ...user, [e.target.name]: e.target.value });
 	};
 
-	const addUserDetails = async () => {
-		await addNewUser(user);
-		navigate('/');
+	const addUserDetails = async (e) => {
+		e.preventDefault();
+		if (firstName === '' || lastName === '' || password === '') {
+			alert('Please enter all required fields');
+		} else {
+			await addNewUser(user);
+			navigate('/');
+		}
 	};
 
 	return (
 		<FormGroup className={classes.container}>
 			<Typography variant='h6'> Add User</Typography>
 			<FormControl>
-				<InputLabel>First Name</InputLabel>
+				<InputLabel>First Name*</InputLabel>
 				<Input
 					onChange={(e) => onValueChange(e)}
 					name='firstName'
@@ -48,7 +53,7 @@ const AddNewUser = () => {
 				/>
 			</FormControl>
 			<FormControl>
-				<InputLabel>Last Name</InputLabel>
+				<InputLabel>Last Name*</InputLabel>
 				<Input
 					onChange={(e) => onValueChange(e)}
 					name='lastName'
@@ -65,7 +70,7 @@ const AddNewUser = () => {
 				/>
 			</FormControl>
 			<FormControl>
-				<InputLabel>Password</InputLabel>
+				<InputLabel>Password*</InputLabel>
 				<Input
 					onChange={(e) => onValueChange(e)}
 					name='password'
@@ -75,7 +80,12 @@ const AddNewUser = () => {
 			</FormControl>
 			<FormControl>
 				<InputLabel>Email</InputLabel>
-				<Input onChange={(e) => onValueChange(e)} name='email' value={email} />
+				<Input
+					onChange={(e) => onValueChange(e)}
+					name='email'
+					value={email}
+					type='email'
+				/>
 			</FormControl>
 			<FormControl>
 				<InputLabel>Status</InputLabel>
@@ -85,13 +95,15 @@ const AddNewUser = () => {
 					value={status}
 				/>
 			</FormControl>
-			<Button
-				onClick={() => addUserDetails()}
-				variant='contained'
-				color='primary'
-			>
-				Add User
-			</Button>
+			<FormControl>
+				<Button
+					onClick={(e) => addUserDetails(e)}
+					variant='contained'
+					color='primary'
+				>
+					Add User
+				</Button>
+			</FormControl>
 		</FormGroup>
 	);
 };

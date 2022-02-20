@@ -109,6 +109,24 @@
       "status": "Illum ad qui culpa ",
       "id": 19,
       "permissions": "Superadmin"
+    },
+    {
+      "firstName": "Alisa",
+      "lastName": "Owen",
+      "username": "lalaxulub",
+      "password": "Earum veniam in mol",
+      "email": "renowu@mailinator.com",
+      "status": "Vel aliquip debitis ",
+      "id": 20
+    },
+    {
+      "firstName": "Ivor",
+      "lastName": "Bush",
+      "username": "wadawoty",
+      "password": "Provident autem cul",
+      "email": "suja@mailinator.com",
+      "status": "Illo cum necessitati",
+      "id": 21
     }
   ]
 }
