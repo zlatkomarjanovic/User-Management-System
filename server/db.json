@@ -11,16 +11,6 @@
       "permissions": "Code"
     },
     {
-      "firstName": "Yuli",
-      "lastName": "Brock",
-      "username": "loqome",
-      "password": "Aut et quo aut sed t",
-      "email": "fiwufat@mailinator.com",
-      "status": "Nobis rem in labore ",
-      "id": 7,
-      "permissions": ""
-    },
-    {
       "firstName": "Bertha",
       "lastName": "Forbes",
       "username": "votip",
@@ -58,26 +48,6 @@
       "email": "syjacidese@mailinator.com",
       "status": "Non voluptates et ve",
       "id": 11,
-      "permissions": ""
-    },
-    {
-      "firstName": "Ifeoma",
-      "lastName": "Johns",
-      "username": "hevafyziku",
-      "password": "Ex sint aut autem q",
-      "email": "qylywohy@mailinator.com",
-      "status": "Asperiores accusanti",
-      "id": 12,
-      "permissions": ""
-    },
-    {
-      "firstName": "Phoebe",
-      "lastName": "Miles",
-      "username": "gezarunoti",
-      "password": "Occaecat sit ipsum t",
-      "email": "bofynevov@mailinator.com",
-      "status": "Quod in ex atque sit",
-      "id": 13,
       "permissions": ""
     },
     {
@@ -129,6 +99,16 @@
       "status": "Quia enim dolore lau",
       "id": 18,
       "permissions": ""
+    },
+    {
+      "firstName": "Karleigh",
+      "lastName": "Kane",
+      "username": "qasuke",
+      "password": "Laborum Sint cumque",
+      "email": "tizolekyla@mailinator.com",
+      "status": "Illum ad qui culpa ",
+      "id": 19,
+      "permissions": "Superadmin"
     }
   ]
 }

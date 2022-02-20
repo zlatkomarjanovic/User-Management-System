@@ -44,6 +44,7 @@ const AddNewUser = () => {
 					onChange={(e) => onValueChange(e)}
 					name='firstName'
 					value={firstName}
+					required
 				/>
 			</FormControl>
 			<FormControl>
@@ -52,6 +53,7 @@ const AddNewUser = () => {
 					onChange={(e) => onValueChange(e)}
 					name='lastName'
 					value={lastName}
+					required
 				/>
 			</FormControl>
 			<FormControl>
@@ -68,6 +70,7 @@ const AddNewUser = () => {
 					onChange={(e) => onValueChange(e)}
 					name='password'
 					value={password}
+					required
 				/>
 			</FormControl>
 			<FormControl>

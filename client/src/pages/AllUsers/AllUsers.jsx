@@ -15,6 +15,7 @@ import {
 import { NavLink as Link } from 'react-router-dom';
 import Pagination from '../../components/Pagination/Pagination';
 import { useStyle } from './styles';
+import { AiFillDelete } from 'react-icons/ai';
 
 const AllUsers = () => {
 	//States
@@ -112,7 +113,7 @@ const AllUsers = () => {
 			</FormGroup>
 
 			<Table className={classes.table}>
-				<TableHead>
+				<TableHead className={classes.root}>
 					<TableRow className={classes.thead}>
 						<TableCell className={classes.tcell} onClick={() => sortById('id')}>
 							Id
@@ -127,8 +128,8 @@ const AllUsers = () => {
 						<TableCell>
 							<Button
 								style={{ marginRight: '10px' }}
+								className={classes.buttonSort}
 								variant='contained'
-								color='primary'
 								onClick={() => cancelSorting()}
 							>
 								Cancel sorting
@@ -167,7 +168,7 @@ const AllUsers = () => {
 								<TableCell>{user.status}</TableCell>
 								<TableCell>
 									<Button
-										style={{ marginRight: '10px' }}
+										className={classes.buttonEdit}
 										variant='contained'
 										color='primary'
 										component={Link}
@@ -176,7 +177,7 @@ const AllUsers = () => {
 										Edit
 									</Button>
 									<Button
-										style={{ marginRight: '10px' }}
+										className={classes.buttonAssign}
 										variant='contained'
 										color='primary'
 										component={Link}
@@ -185,11 +186,11 @@ const AllUsers = () => {
 										Assign
 									</Button>
 									<Button
+										className={classes.buttonDelete}
 										onClick={() => deleteUserData(user.id)}
 										variant='contained'
-										color='secondary'
 									>
-										Delete
+										<AiFillDelete style={{ width: '30px', height: '30px' }} />
 									</Button>
 								</TableCell>
 							</TableRow>
